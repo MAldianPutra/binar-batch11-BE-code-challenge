@@ -1,2 +1,8 @@
-<h1>Details#new</h1>
-<p>Find me in app/views/details/new.html.erb</p>
+<h3>Create Details</h3>
+<%= form_for @detail do |form| %>
+  <%= form.text_field :item_id, placeholder: "item_id" %>
+  <%= form.text_field :order_id, placeholder: "order_id" %>
+  <%= form.text_field :price, placeholder: "detail_price" %>
+  <%= form.text_field :quantity, placeholder: "detail_quantity"%>
+  <%= form.submit %>
+<% end %>
