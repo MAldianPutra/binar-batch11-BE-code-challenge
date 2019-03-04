@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     redirect_to items_path(@item)
   end
+
+  # def update_quantity
+  #   @item
   
   def destroy
     @item.destroy
