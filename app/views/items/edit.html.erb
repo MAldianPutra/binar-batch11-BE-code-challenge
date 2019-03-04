@@ -1,0 +1,7 @@
+<h3>Update Item Details</h3>
+<%= form_with model: @item do |form| %>
+  <%= form.text_field :item_name, placeholder: "item_name" %>
+  <%= form.text_field :item_price, placeholder: "item_price" %>
+  <%= form.text_field :item_quantity, placeholder: "item_quantity" %>
+  <%= form.submit %>
+<% end %>
