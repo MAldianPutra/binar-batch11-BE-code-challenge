@@ -7,4 +7,8 @@ class Transaction < ApplicationRecord
     def update_item_quantity
         item.update_attributes(item_quantity: item.item_quantity - quantity)
     end
+
+    def count_income
+        @transactions.sum(:price)
+    end 
 end
