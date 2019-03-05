@@ -1,0 +1,17 @@
+<h1>Daftar Transaksi</h1>
+
+<table>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td> Transaction ID : <%= link_to transaction.id, transaction_path(transaction)%><td>
+      <td> || Member ID : <%= transaction.member_id%><td>
+      <td> || Item ID : <%= transaction.item_id %></td>
+      <td> || Price : <%= transaction.price %></td>
+      <td> || Quantity : <%= transaction.quantity %></td>
+      <td><%= button_to 'Edit', edit_transaction_path(transaction), method: 'get'%></td>
+      <td><%= button_to 'Remove', transaction_path(transaction), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+
+<br><h3>Total Transaksi : <%= @transactions.sum(:price) %></h3>
+<%= link_to "Add a New transaction", new_transaction_path %>

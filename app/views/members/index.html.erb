@@ -2,7 +2,8 @@
 <table>
   <% @members.each do |member| %>
     <tr>
-      <td><%= link_to member.member_name, member_path(member) %></td>
+      <td>Member ID : <%= member.id%></td>
+      <td>|| Name : <%= link_to member.member_name, member_path(member) %></td>
       <td><%= button_to 'Edit', edit_member_path(member), method: 'get'%></td>
       <td><%= button_to 'Remove', member_path(member), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
   <% end %>
