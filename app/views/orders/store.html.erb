@@ -5,15 +5,11 @@
     <tr>
       <td>Item ID : <%= item.id%><td>
       <td><%= link_to item.item_name, item_path(item) %></td>
-      <td> || Quantity : <%= item.item_quantity %></td>
-      <td><form> || Quantity: <input type="text" placeholder="quantity"> </form></td>
-  <% end %>
-</table>
-
-<form>
-<form>
-Member ID : <input type="text" placeholder="Member ID">
-</form> 
-  <input type="submit" value="Submit">
-</form> 
+      <td>|| Price: <%= item.item_price%></td>
+      <%= form_for @detail do |detail| %>
+        <%= form.text_field :quantity, placeholder: "quantity" %>
+        <%= form.submit %>
+      <% end %>
+    <% end %>
+</table> 
 

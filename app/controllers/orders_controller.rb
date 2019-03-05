@@ -11,6 +11,11 @@ class OrdersController < ApplicationController
 
   def store
     @items = Item.all
+    detail = Detail.create(detail_params)
+  end
+
+  def buy
+    
   end
 
 
