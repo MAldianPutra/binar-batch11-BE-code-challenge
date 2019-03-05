@@ -13,4 +13,5 @@
   <% end %>
 </table>
 
+<br><h2>Total Transaksi : <%= @transactions.sum(:price) %></h2>
 <%= link_to "Add a New transaction", new_transaction_path %>

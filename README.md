@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ada 3 branch :
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Master -> Belum Dimerge Request.
+2. feature/Store -> Rencananya ingin menggunakan tabel berbeda agar bisa membeli beberapa jenis item sekaligus, namun buntu sehingga tidak dilanjutkan.
+3. feature/change_concept -> Akhirnya menggunakan tabel transaction, dimana pengguna hanya bisa membeli 1 jenis item dalam 1 transaksi.
