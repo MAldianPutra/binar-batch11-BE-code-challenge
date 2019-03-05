@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_135503) do
+ActiveRecord::Schema.define(version: 2019_03_05_162617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2019_03_05_135503) do
     t.index ["member_id"], name: "index_orders_on_member_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.bigint "member_id"
+    t.integer "total_sale"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_sales_on_member_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.bigint "member_id"
     t.bigint "item_id"
@@ -72,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_135503) do
   add_foreign_key "order_details", "items"
   add_foreign_key "order_details", "members"
   add_foreign_key "orders", "members"
+  add_foreign_key "sales", "members"
   add_foreign_key "transactions", "items"
   add_foreign_key "transactions", "members"
 end

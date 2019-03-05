@@ -12,6 +12,8 @@
       <td><%= button_to 'Remove', transaction_path(transaction), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
   <% end %>
 </table>
-
-<br><h3>Total Transaksi : <%= @transactions.sum(:price) %></h3>
+<br>
+<h3>Total Transaksi : <%= @transactions.sum("price * quantity") %></h3>
+<h3>Total Transaksi Member 1 : <%= @transactions.where(:member_id => 1).sum("price * quantity") %></h3>
+<h3>Total Transaksi Member 2 : <%= @transactions.where(:member_id => 2).sum("price * quantity") %></h3>
 <%= link_to "Add a New transaction", new_transaction_path %>
