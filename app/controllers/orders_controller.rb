@@ -9,6 +9,11 @@ class OrdersController < ApplicationController
 
   end
 
+  def store
+    @items = Item.all
+  end
+
+
   def new
     @order = Order.new
   end
