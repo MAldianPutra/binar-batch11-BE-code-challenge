@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_110155) do
+ActiveRecord::Schema.define(version: 2019_03_05_135503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_110155) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "item_name"
     t.integer "item_price"
     t.integer "item_quantity"
@@ -40,6 +38,17 @@ ActiveRecord::Schema.define(version: 2019_03_04_110155) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "item_id"
+    t.integer "price"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_order_details_on_item_id"
+    t.index ["member_id"], name: "index_order_details_on_member_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "member_id"
     t.datetime "created_at", null: false
@@ -47,7 +56,22 @@ ActiveRecord::Schema.define(version: 2019_03_04_110155) do
     t.index ["member_id"], name: "index_orders_on_member_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "item_id"
+    t.integer "price"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_transactions_on_item_id"
+    t.index ["member_id"], name: "index_transactions_on_member_id"
+  end
+
   add_foreign_key "details", "items"
   add_foreign_key "details", "orders"
+  add_foreign_key "order_details", "items"
+  add_foreign_key "order_details", "members"
   add_foreign_key "orders", "members"
+  add_foreign_key "transactions", "items"
+  add_foreign_key "transactions", "members"
 end

@@ -1,8 +1,8 @@
-class CreateDetails < ActiveRecord::Migration[5.2]
+class CreateTransactions < ActiveRecord::Migration[5.2]
   def change
-    create_table :details do |t|
+    create_table :transactions do |t|
+      t.references :member, foreign_key: true
       t.references :item, foreign_key: true
-      t.references :order, foreign_key: true
       t.integer :price
       t.integer :quantity
       t.timestamps

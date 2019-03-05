@@ -1,3 +1,3 @@
 class Member < ApplicationRecord
-    has_many :orders
+    has_many :transactions
 end
